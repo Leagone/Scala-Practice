@@ -20,6 +20,7 @@ object Practice1 extends App {
   }
 
   def fib(target: Int): Int = {
+    @tailrec
     def go(prev: Int, curr: Int, count: Int): Int =
       if (count == target) curr
       else go(curr, prev + curr, count + 1)
@@ -100,5 +101,20 @@ object Practice1 extends App {
   *
   *
   * */
+
+  def isSorted[A](as: Array[A], ordered: (A,A) => Boolean): Boolean = {
+    def iteration(current: Int) : Boolean = {
+      if (current == 1) ordered(as(current), as(current - 1 ))
+      else if (!ordered(as(current), as(current -1))) false
+      else iteration(current -1)
+    }
+    iteration(as.length - 1)
+  }
+
+
+
+
+  println(isSorted(Array(1,2,3), (x: Int, y:Int) => x > y))
+
 
 }
