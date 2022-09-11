@@ -82,4 +82,23 @@ object Practice1 extends App {
 
   val testVal = cube(0)
 
+  /*
+  *
+  * extension (r: Rational)
+  *   def function
+  *   def function
+  *
+  * extends the functionality of class
+  * does not work in Java 8
+  *
+  * does not give access to private members
+  *
+  * extension (x: Rational)
+  *   def + (y: Rational) = x.add(y)
+  *   def - (y: Rational) = x.substrate(y)
+  *
+  *
+  *
+  * */
+
 }
