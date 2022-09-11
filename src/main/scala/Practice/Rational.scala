@@ -4,6 +4,12 @@ import scala.annotation.tailrec
 
 case class Rational(x: Int, y: Int) {
 
+  // Throws exception if the condidion is not meet. Boolen
+  require(y > 0, "Denominator must be positive")
+
+  //Secondary constructor
+  def this(x: Int) = this(x, 1)
+
   @tailrec
   private def gcd(num: Int, denm: Int): Int = {
     if (denm == 0) num else gcd(denm, num % denm)

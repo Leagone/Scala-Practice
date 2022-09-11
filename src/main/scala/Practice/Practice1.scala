@@ -80,5 +80,6 @@ object Practice1 extends App {
 
   val exampleRational = Rational(5,10)
 
-  println("Side effect")
+  val testVal = cube(0)
+
 }
