@@ -78,38 +78,7 @@ object Practice1 extends App {
 
   // f1 and f2 works the same
 
-  class Rational(x: Int, y: Int) {
+  val exampleRational = Rational(5,10)
 
-    private def gcd(num: Int, denm: Int) : Int = {
-      if (denm == 0) num else gcd(denm, num % denm)
-    }
-
-    def numer = x / gcd(x.abs, y)
-    def denom = y / gcd(x.abs, y)
-
-    def add(r: Rational) : Practice.Rational = {
-      Rational(numer * r.denom + denom * r.numer, denom * r.denom)
-    }
-
-    def substrate(r: Rational) : Practice.Rational = {
-      Rational(numer * r.denom - denom * r.numer, denom * r.denom)
-    }
-
-    def multiply(r: Rational) : Practice.Rational = {
-      Rational(numer * r.numer, denom * r.denom)
-    }
-
-    def div(r: Rational) : Practice.Rational = {
-      Rational(numer * r.denom, denom * r.numer)
-    }
-
-    def neg() : Practice.Rational = {
-      Rational(-numer, -denom)
-    }
-
-
-
-
-  }
   println("Side effect")
 }
