@@ -102,7 +102,7 @@ object Practice1 extends App {
   *
   * */
 
-  def isSorted[A](as: Array[A], ordered: (A,A) => Boolean): Boolean = {
+  def isSorted1[A](as: Array[A], ordered: (A,A) => Boolean): Boolean = {
     def iteration(current: Int) : Boolean = {
       if (current == 1) ordered(as(current), as(current - 1 ))
       else if (!ordered(as(current), as(current -1))) false
@@ -111,10 +111,23 @@ object Practice1 extends App {
     iteration(as.length - 1)
   }
 
+  def isSorted[A](as: Array[A], function: (A,A) => Boolean) : Boolean = {
+    def go(n: Int) : Boolean ={
+      if( n >= as.length - 1) true
+      else if (function(as(n), as(n+1))) false
+      else go(n+1)
+    }
+    go(0)
+  }
+
+  def curry[A,B,C](f: (A, B) => C): A => (B => C) = {
+    (A) => (B) => f(A,B)
+  }
+  def uncurry[A,B,C](f: A => B => C) : (A, B) => C = {
+    (A,B) => f(A)(B)
+  }
 
 
-
-  println(isSorted(Array(1,2,3), (x: Int, y:Int) => x > y))
 
 
 }
